@@ -9,11 +9,11 @@ https://trello.com/b/xQh1H7YY/positive-workflow
 <br>
 # User Stories
 User will be able:
-* create a project
-* show/read project
-* add members to project
-* edit project delete project
-* add tasks to project
-* show/read tasks
-* edit task
-* delete task
+** create a project
+** show/read project
+** add members to project
+** edit project delete project
+** add tasks to project
+** show/read tasks
+** edit task
+** delete task
