@@ -36,3 +36,27 @@ async function create(req, res, next) {
     }
 };
 
+async function update(req, res){
+    try {
+      await Task.findByIdAndUpdate(req.body._id, req.body);
+      res.status(201).json({
+          message: "Task updated successfully",
+        });
+      } catch (error) {
+          res.status(400).json({ error: err.message })
+      }
+    };
+
+    async function destroy(req, res){
+        try {
+          await Task.findByIdAndDelete(req.body._id);
+          res.status(201).json({
+              message: "Task deleted successfully",
+            });
+          } catch (error) {
+              res.status(400).json({ error: err.message })
+          }
+        };
+           
+       
+

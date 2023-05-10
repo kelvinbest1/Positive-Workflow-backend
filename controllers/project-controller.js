@@ -1,3 +1,5 @@
+const { Project } = require('../models')
+
 async function index(req, res, next) {
     try {
         const projects = await Project.find({
@@ -88,6 +90,15 @@ async function deleteMember(req, res) {
         res.status(400).json({ error: err.message })
     }
 };
+
+module.exports = {
+    index ,
+    create,
+    detail,
+    update,
+    destroy,
+    deleteMember
+}
 
 
 
