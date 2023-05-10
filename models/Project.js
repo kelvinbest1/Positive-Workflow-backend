@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { requireToken } = require("../middleware/auth");
 
 const memberSchema = new mongoose.Schema({
     user: {

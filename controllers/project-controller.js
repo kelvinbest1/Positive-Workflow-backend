@@ -1,4 +1,5 @@
 const { Project } = require('../models')
+const { handleValidateOwnership } = require('../middleware/auth')
 
 async function index(req, res, next) {
     try {
