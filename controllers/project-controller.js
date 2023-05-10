@@ -95,10 +95,10 @@ async function deleteMember(req, res) {
 module.exports = {
     index ,
     create,
-    detail,
+   getOne: detail,
     getProjectByRole,
     update,
-    destroy,
+    delete: destroy,
     deleteMember
 }
 

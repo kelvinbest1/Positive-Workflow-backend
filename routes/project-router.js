@@ -4,7 +4,7 @@ const projectCtrl = require('../controllers/project-controller')
 const {requireToken} = require('../middleware/auth')
 
 router.get('/', projectCtrl.index)
-router.get("/get-projects-by-role", projectCtrl.getProjectByRole)
+router.get("/getProjectsByRole", projectCtrl.getProjectByRole)
 router.post('/',requireToken, projectCtrl.create)
 router.delete('/:id',requireToken, projectCtrl.delete)
 router.put('/:id',requireToken, projectCtrl.update)

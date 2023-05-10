@@ -63,7 +63,7 @@ module.exports = {
     index,
     create,
     update,
-    destroy
+    delete: destroy
 }
 
 

@@ -19,9 +19,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-    },
+    }
+  },
 
-    timestamps: true,
+    {timestamps: true,
     toJSON: {
       virtuals: true,
       transform: (_doc, ret) => {
