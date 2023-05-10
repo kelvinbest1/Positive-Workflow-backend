@@ -75,6 +75,26 @@ async function destroy(req, res, next) {
     }
 }
 
+async function deleteMember(req, res) {
+    try {
+        const { memberId, projectId } = req.body;
+        const project = await Project.findById(projectId);
+        project.members.pull(memberId);
+        await project.save();
+        res.status(200).json({
+            message: "Member removed successfully",
+        });
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
+};
+
+
+
+
+
+
+
 
 
 
