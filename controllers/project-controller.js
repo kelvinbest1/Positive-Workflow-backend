@@ -95,6 +95,7 @@ module.exports = {
     index ,
     create,
     detail,
+    getProjectByRole,
     update,
     destroy,
     deleteMember
