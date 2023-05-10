@@ -7,9 +7,9 @@ async function index(req, res, next) {
             data: projects,
         });
     } catch (err) {
-        res.status(400).json({error: err.message})
+        res.status(400).json({ error: err.message })
     }
-};
+}
 
 async function create(req, res, next) {
     try {
@@ -20,9 +20,9 @@ async function create(req, res, next) {
             message: "Project created successfully",
         }));
     } catch (err) {
-       res.status(400).json({error: err.message})
+        res.status(400).json({ error: err.message })
     }
-};
+}
 
 async function detail(req, res, next) {
     try {
@@ -33,9 +33,52 @@ async function detail(req, res, next) {
             data: project,
         });
     } catch (err) {
-        res.status(400).json({error: err.message})
+        res.status(400).json({ error: err.message })
     }
-};
+}
+
+async function getProjectByRole(req, res, next) {
+    try {
+        const userId = req.body.userId;
+        const projects = await Project.find({ "members.user": userId })
+            .sort({
+                createdAt: -1,
+            })
+            .populate("owner");
+        res.status(200).json({
+            data: projects,
+        });
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
+}
+
+async function update(req, res, next) {
+    try {
+        await Project.findByIdAndUpdate(req.body._id, req.body);
+        res.status(200).json({
+            message: "Project updated successfully",
+        });
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    };
+}
+
+async function destroy(req, res, next) {
+    try {
+        await Project.findByIdAndDelete(req.body._id);
+        res.status(200).json({
+            message: "Project deleted successfully",
+        });
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
+}
+
+
+
+
+
 
 
 
