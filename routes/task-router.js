@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const taskCtrl = require('../controllers/task-controller')
+const {requireToken} = require('../middleware/auth')
 // ROUTES
 
 
 router.get('/', taskCtrl.index)
-router.post('/', taskCtrl.create)
-router.delete('/:id', taskCtrl.delete)
-router.put('/:id', taskCtrl.update)
+router.post('/',requireToken, taskCtrl.create)
+router.delete('/:id',requireToken, taskCtrl.delete)
+router.put('/:id',requireToken, taskCtrl.update)
 
 
 

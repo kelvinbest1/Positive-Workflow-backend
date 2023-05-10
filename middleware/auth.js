@@ -17,7 +17,7 @@ const { Strategy, ExtractJwt } = require('passport-jwt')
 ////////////////////////////////
 
 
-const secret = process.env.JWT_SECRET || 'yolo unique secrets'
+const secret = process.env.JWT_SECRET || 'kelvin'
 
 
 

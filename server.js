@@ -6,13 +6,10 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
-const usersRoute = require("./routes/usersRoute");
-const projectsRoute = require("./routes/projectsRoute");
-const tasksRoute = require("./routes/tasksRoute");
+const authRouter = require("./routes/auth-router");
+const projectRouter = require("./routes/project-router");
+const taskRouter = require("./routes/task-router");
 
-app.use("/api/users", usersRoute);
-app.use("/api/projects", projectsRoute);
-app.use("/api/tasks", tasksRoute);
 
 
 
@@ -25,6 +22,9 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan("dev"))
 
+app.use("/auth", authRouter);
+app.use("/projects", projectRouter);
+app.use("/tasks", taskRouter);
 
 
 app.get("/", (req, res) => {
