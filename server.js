@@ -7,16 +7,18 @@ const morgan = require('morgan')
 const cors = require('cors')
 
 
-// pull PORT from .env, give default value of 4000 and establish DB Connection
+
 const { PORT } = process.env;
-
-
 const app = express();
 
-///////////////////////////////
-// ROUTES
-////////////////////////////////
-// create a test route
+
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(cors())
+app.use(morgan("dev"))
+
+
+
 app.get("/", (req, res) => {
     res.send("hello world");
 });
