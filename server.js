@@ -6,6 +6,14 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
+const usersRoute = require("./routes/usersRoute");
+const projectsRoute = require("./routes/projectsRoute");
+const tasksRoute = require("./routes/tasksRoute");
+
+app.use("/api/users", usersRoute);
+app.use("/api/projects", projectsRoute);
+app.use("/api/tasks", tasksRoute);
+
 
 
 const { PORT } = process.env;
