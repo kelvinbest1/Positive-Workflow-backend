@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const authCtrl = require("./controllers/auth-controllers");
 
-// SIGN UP
-// POST /auth/register
-router.post("/register", async (req, res, next) => {});
+router.post('/register', authCtrl.register)
 
-// SIGN IN
-// POST /auth/login
-router.post("/login", async (req, res, next) => {});
+router.post('/login', authCtrl.login)
+
+router.get('/logout', (req,res,next)=>res.send('logging out'))
 
 
 module.exports = router;
