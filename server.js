@@ -2,13 +2,15 @@
 require("dotenv").config();
 require('./config/db.connection.js')
 
+const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
+
+
 // pull PORT from .env, give default value of 4000 and establish DB Connection
 const { PORT } = process.env;
 
-// import express
-const express = require("express");
 
-// create application object
 const app = express();
 
 ///////////////////////////////
