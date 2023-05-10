@@ -15,3 +15,25 @@ const taskSchema = new mongoose.Schema(
       required: true,
       default: "pending",
     },
+    project: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "projects",
+      },
+      assignedTo: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+      },
+      assignedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+      },
+      attachments: {
+        type: Array,
+        default : []
+      },
+    },
+    { timestamps: true }
+  );
+  
+  
+  module.exports = mongoose.model("tasks", taskSchema);
