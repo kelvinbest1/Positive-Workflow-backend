@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-require('./config/db.connection.js')
+require('./config/dbConfig.js')
 
 const express = require('express')
 const morgan = require('morgan')
