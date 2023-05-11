@@ -1,13 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const projectCtrl = require('../controllers/project-controller')
-const {requireToken} = require('../middleware/auth')
+const authMiddleware = require("../middleware/auth");
+
+
 
 router.get('/', projectCtrl.index)
 router.get("/getProjectsByRole", projectCtrl.getProjectByRole)
-router.post('/',requireToken, projectCtrl.create)
-router.delete('/:id',requireToken, projectCtrl.delete)
-router.put('/:id',requireToken, projectCtrl.update)
+router.post('/',authMiddleware, projectCtrl.create)
+router.delete('/:id',authMiddleware, projectCtrl.delete)
+router.put('/:id',authMiddleware, projectCtrl.update)
 router.get('/:id', projectCtrl.getOne)
 
 
