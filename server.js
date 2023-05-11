@@ -6,7 +6,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 
-const authRouter = require("./routes/auth-router");
+const userRouter = require("./routes/user-router");
 const projectRouter = require("./routes/project-router");
 const taskRouter = require("./routes/task-router");
 
@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan("dev"))
 
-app.use("/auth", authRouter);
+app.use("/users", userRouter);
 app.use("/projects", projectRouter);
 app.use("/tasks", taskRouter);
 
